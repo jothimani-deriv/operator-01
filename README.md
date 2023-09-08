@@ -4,7 +4,7 @@
 Sample POC operator.
 
   - Looks for values in Trigger key in spec and does action based on that.
-  
+
 ```
 apiVersion: cache.deriv.dev/v1alpha1
 kind: LogListener
@@ -16,7 +16,7 @@ spec:
   trigger: "CREATE"
 
 ```
-
+![example](./operator.png)
 
 ### Running on the cluster
 1. Install Instances of Custom Resources:
