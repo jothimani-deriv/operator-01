@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"context"
-	"fmt"
 
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime"
@@ -35,8 +34,13 @@ func (r *LogListenerReconciler) Reconcile(ctx context.Context, req ctrl.Request)
 	}
 
 	logMessage := loglistenerValue.Spec.Trigger
-	fmt.Println("Debug: Trigger value is:", logMessage)
-	log.Info("Applied size: ", "trigger", logMessage)
+	if logMessage == "CREATE" {
+		log.Info("Received: ", "trigger", logMessage)
+		log.Info("Creating a new deployment")
+	} else if logMessage == "UPDATE" {
+		log.Info("PATCHING the deployment")
+	}
+
 	return ctrl.Result{}, nil
 }
 
