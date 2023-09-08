@@ -1,0 +1,12 @@
+apiVersion: cache.deriv.dev/v1alpha1
+kind: LogListener
+metadata:
+  labels:
+    app.kubernetes.io/name: loglistener
+    app.kubernetes.io/instance: loglistener-sample
+    app.kubernetes.io/part-of: operator-01
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: operator-01
+  name: loglistener-sample
+spec:
+  # TODO(user): Add fields here

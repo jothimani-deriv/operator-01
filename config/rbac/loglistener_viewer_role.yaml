@@ -1,0 +1,27 @@
+# permissions for end users to view loglisteners.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: loglistener-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: operator-01
+    app.kubernetes.io/part-of: operator-01
+    app.kubernetes.io/managed-by: kustomize
+  name: loglistener-viewer-role
+rules:
+- apiGroups:
+  - cache.deriv.dev
+  resources:
+  - loglisteners
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - cache.deriv.dev
+  resources:
+  - loglisteners/status
+  verbs:
+  - get
